@@ -2,7 +2,7 @@
 const constRoutes = [
     {
         path: '/',
-        component: () => import('../App.vue'),
+        component: () => import('@/App.vue'),
         meta: {
             title: '首页'
         }
