@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 
 // 引入tailwindcss
@@ -11,6 +10,7 @@ import  'element-plus/dist/index.css'
 import router from './router';
 // 引入pinia
 import pinia from './store';
+
 const app = createApp(App)
 
 app.use(ElementPlus)
