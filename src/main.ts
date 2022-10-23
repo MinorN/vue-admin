@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
 // 引入tailwindcss
 import '@/assets/styles/tailwind.scss'
 // 引入Element Plus

@@ -1,12 +1,12 @@
 const constRoutes = [
-    {
-        path: '/',
-        name: 'home',
-        component: () => import('@/components/HelloWorld.vue'),
-        meta: {
-            title: '首页'
-        }
-    },
+    // {
+    //     path: '/',
+    //     name: 'home',
+    //     component: () => import('@/components/HelloWorld.vue'),
+    //     meta: {
+    //         title: '首页'
+    //     }
+    // },
     {
         path: '/login',
         name: 'login',
