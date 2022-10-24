@@ -2,11 +2,12 @@ import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'node:path';
 import {viteMockServe} from 'vite-plugin-mock';
+import { UserConfigExport, ConfigEnv } from 'vite'
 // 全局引入ref...等
 import AutoImport from 'unplugin-auto-import/vite';
 
 
-export default ({command}) => {
+export default ({command}:ConfigEnv):UserConfigExport => {
     return defineConfig({
         plugins: [
             AutoImport({
@@ -16,7 +17,7 @@ export default ({command}) => {
             vue(),
             viteMockServe({
                 // default
-                mockPath: 'mock',
+                mockPath: 'src/mock',
                 localEnabled: command === 'serve',
             }),
         ],

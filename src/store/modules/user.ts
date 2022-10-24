@@ -1,28 +1,46 @@
 import {defineStore} from 'pinia';
+import api from '@/api';
 
 const useUserStore = defineStore(
     'user',
     {
-        state:()=>({
-            username:localStorage.getItem('username') || '',
-            token:localStorage.getItem('token') || '',
-            fail_time:localStorage.getItem('fail_time') || ''
+        state: () => ({
+            username: localStorage.getItem('username') || '',
+            token: localStorage.getItem('token') || '',
+            fail_time: localStorage.getItem('fail_time') || ''
         }),
-        getters:{
-            isLogin:(state)=>{
-                let isLogin = false
-                if(state.token){
-                    if(new Date().getTime() < parseInt(state.fail_time)*1000){
-                        isLogin = true
+        getters: {
+            isLogin: (state) => {
+                let isLogin = false;
+                if (state.token) {
+                    if (new Date().getTime() < parseInt(state.fail_time) * 1000) {
+                        isLogin = true;
                     }
                 }
-                return isLogin
+                return isLogin;
             }
         },
-        actions:{
-
+        actions: {
+            login(data: {
+                username: string,
+                password: string
+            }) {
+                return new Promise<void>((resolve, reject) => {
+                    api.post('/mock/user/login', data).then(res => {
+                        localStorage.setItem('username', res.data.data.username);
+                        localStorage.setItem('token', res.data.data.token);
+                        localStorage.setItem('fail_time', res.data.data.fail_time);
+                        this.username = res.data.username;
+                        this.token = res.data.token;
+                        this.fail_time = res.data.fail_time;
+                        resolve()
+                    }).catch(error => {
+                        reject(error);
+                    });
+                });
+            }
         }
     }
-)
+);
 
-export default useUserStore
+export default useUserStore;
