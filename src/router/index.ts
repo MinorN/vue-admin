@@ -13,12 +13,12 @@ router.beforeEach(async (to,from,next)=>{
     if(userStore.isLogin){
         next()
     }else{
-        if(to.meta.whiteList){
-            next()
-        }else{
+        if(!to?.meta?.whiteList){
             next({
                 name:'login'
             })
+        }else{
+            next()
         }
     }
 })
