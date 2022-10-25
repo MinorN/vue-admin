@@ -27,12 +27,13 @@ const useUserStore = defineStore(
             }) {
                 return new Promise<void>((resolve, reject) => {
                     api.post('/mock/user/login', data).then(res => {
+                        console.log(res)
                         localStorage.setItem('username', res.data.data.username);
                         localStorage.setItem('token', res.data.data.token);
                         localStorage.setItem('fail_time', res.data.data.fail_time);
-                        this.username = res.data.username;
-                        this.token = res.data.token;
-                        this.fail_time = res.data.fail_time;
+                        this.username = res.data.data.username;
+                        this.token = res.data.data.token;
+                        this.fail_time = res.data.data.fail_time;
                         resolve()
                     }).catch(error => {
                         reject(error);

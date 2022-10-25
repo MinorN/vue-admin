@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import Logo from './components/logo.vue'
 </script>
 
 <template>
@@ -8,9 +8,7 @@
         mode="horizontal"
         :ellipsis="false"
     >
-      <el-menu-item index="0">LOGO</el-menu-item>
-      <el-menu-item index="0">LOGO</el-menu-item>
-      <el-menu-item index="0">LOGO</el-menu-item>
+        <Logo/>
     </el-menu>
 
   </header>
