@@ -4,7 +4,7 @@ const constRoutes = [
         name: 'home',
         component: () => import('@/layouts/header/index.vue'),
         meta: {
-            title: '首页'
+            title: '首页',
         }
     },
     {
