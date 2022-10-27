@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// 引入全局样式
+import '@/assets/styles/global.scss'
 // 引入tailwindcss
 import '@/assets/styles/tailwind.scss'
 // 引入Element Plus
